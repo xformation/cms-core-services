@@ -14,7 +14,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class CollegeManagementSystemApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication app = new SpringApplicationBuilder(CollegeManagementSystemApplication.class).build();
 		app.run(args);
 		//SpringApplication.run(CollegeManagementSystemApplication.class, args);
