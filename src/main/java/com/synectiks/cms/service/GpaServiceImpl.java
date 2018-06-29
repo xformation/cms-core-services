@@ -7,14 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GpaServiceImpl implements GpaService {
+public class GpaServiceImpl implements GpaService{
+
+
     private GpaRepository gpaRepository;
 
     @Autowired
     public void setGpaRepository(GpaRepository gpaRepository) {
         this.gpaRepository = gpaRepository;
     }
-
     @Override
     public Iterable<Gpa> listAllGpa() {
         return gpaRepository.findAll();
@@ -34,11 +35,12 @@ public class GpaServiceImpl implements GpaService {
     @Override
     public Gpa deleteGpa(Long id) {
         Gpa gpa = getGpaById(id);
-        if (gpa != null) {
+        if(gpa != null){
             gpaRepository.delete(gpa);
         }
         return gpa;
     }
+
 
     @Override
     public Gpa create(Gpa gpa) {

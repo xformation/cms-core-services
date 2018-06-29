@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge=3600)
 @RestController
-@RequestMapping({"/api/institute/"})
+@RequestMapping({"/api/institute"})
 public class InstituteController {
     @Autowired
     private InstituteService instituteService;

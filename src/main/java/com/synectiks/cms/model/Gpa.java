@@ -1,5 +1,7 @@
 package com.synectiks.cms.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -7,7 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Institute")
+@Table(name = "Gpa")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
@@ -16,23 +18,20 @@ public class Gpa {
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Version
-    private int forA;
+    @Column
+    private long forStudent;
     @Column
     private String gpa;
     @Column
-    private Float grade;
+    private float grade;
     @Column
-    private int markFrom;
+    private int markfrom;
     @Column
-    private int markTo;
-    @Column
-    private Date createdAt;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    private int markto;
+    @CreatedDate
+    private Date created_at;
     @LastModifiedDate
-    private Date updatedAt;
+    private Date updated_at;
 
     public long getId() {
         return id;
@@ -42,12 +41,12 @@ public class Gpa {
         this.id = id;
     }
 
-    public int getForA() {
-        return forA;
+    public long getForStudent() {
+        return forStudent;
     }
 
-    public void setForA(int forA) {
-        this.forA = forA;
+    public void setForStudent(long forStudent) {
+        this.forStudent = forStudent;
     }
 
     public String getGpa() {
@@ -58,43 +57,43 @@ public class Gpa {
         this.gpa = gpa;
     }
 
-    public Float getGrade() {
+    public float getGrade() {
         return grade;
     }
 
-    public void setGrade(Float grade) {
+    public void setGrade(float grade) {
         this.grade = grade;
     }
 
-    public int getMarkFrom() {
-        return markFrom;
+    public int getMarkfrom() {
+        return markfrom;
     }
 
-    public void setMarkFrom(int markFrom) {
-        this.markFrom = markFrom;
+    public void setMarkfrom(int markfrom) {
+        this.markfrom = markfrom;
     }
 
-    public int getMarkTo() {
-        return markTo;
+    public int getMarkto() {
+        return markto;
     }
 
-    public void setMarkTo(int markTo) {
-        this.markTo = markTo;
+    public void setMarkto(int markto) {
+        this.markto = markto;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
+    public Date getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdated_at(Date updated_at) {
+        this.updated_at = updated_at;
     }
 }

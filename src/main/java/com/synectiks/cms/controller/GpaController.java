@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping({"/api/gpa"})
+@RequestMapping({"/api/gpa/"})
 public class GpaController {
+
     @Autowired
     private GpaService gpaService;
 
