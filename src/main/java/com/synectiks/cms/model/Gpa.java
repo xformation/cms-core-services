@@ -25,9 +25,9 @@ public class Gpa {
     @Column
     private float grade;
     @Column
-    private int markfrom;
+    private int markFrom;
     @Column
-    private int markto;
+    private int markTo;
     @CreatedDate
     private Date created_at;
     @LastModifiedDate
@@ -65,20 +65,20 @@ public class Gpa {
         this.grade = grade;
     }
 
-    public int getMarkfrom() {
-        return markfrom;
+    public int getMarkFrom() {
+        return markFrom;
     }
 
-    public void setMarkfrom(int markfrom) {
-        this.markfrom = markfrom;
+    public void setMarkFrom(int markFrom) {
+        this.markFrom = markFrom;
     }
 
-    public int getMarkto() {
-        return markto;
+    public int getMarkTo() {
+        return markTo;
     }
 
-    public void setMarkto(int markto) {
-        this.markto = markto;
+    public void setMarkTo(int markTo) {
+        this.markTo = markTo;
     }
 
     public Date getCreated_at() {
