@@ -2,39 +2,34 @@ package com.synectiks.cms.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import org.springframework.data.rest.core.annotation.RestResource;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Library {
+public class Author {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    @RestResource(path = "libraryAddress")
-    private Address address;
-
-    @OneToMany(mappedBy = "library")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "book_author", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "author_id", referencedColumnName = "id"))
     private List<Book> books;
 
-    public Library() {
+    public Author() {
     }
 
-    public Library(String name) {
+    public Author(String name) {
         super();
         this.name = name;
     }
@@ -55,14 +50,6 @@ public class Library {
         this.id = id;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     public List<Book> getBooks() {
         return books;
     }
@@ -70,5 +57,4 @@ public class Library {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
-
 }
