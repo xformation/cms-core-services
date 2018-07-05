@@ -5,5 +5,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "library", path = "library")
-public interface LibraryRepository extends PagingAndSortingRepository<Library, Integer> {
+public interface LibraryRepository extends PagingAndSortingRepository<Library, Long> {
 }
